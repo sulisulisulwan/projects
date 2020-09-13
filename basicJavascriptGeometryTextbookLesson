@@ -1,0 +1,39 @@
+console.log('Hi!  Let\'s explore some simple geometric formulas!');
+console.log('');
+console.log('');
+console.log('First, we have Pythagora\'s Theorem.  Suppose we have a right triangle with sides "a", "b", and a hypotenuse "c".');  
+console.log('');
+console.log('The relationship of the sides can be expressed through the equation  "a^2 + b^2 = c^2"');
+console.log('');
+console.log('');
+console.log('Suppose we have the following values for each variable:');
+console.log('');
+function genVar () {
+  a = Math.floor(Math.random()*9+1)
+  b = Math.floor(Math.random()*9+1)
+  return (a, b)
+}
+genVar ();
+console.log(`a = ${a}, b = ${b}`);
+function pythSolve (a, b) {
+  x = a * a //'x' is equal to 'a' squared
+  y = b * b //'y' is equal to 'b' squared
+  z = x + y //'z' is equal to c squared
+  c = Math.sqrt(z);
+  return c, x, y, z
+}
+pythSolve (a, b)
+console.log('');
+console.log(`By adding the square of ${a} and ${b}, and then taking the square root of that sum, we can fine the length of 'c', or the 'hypotenuse'`);
+console.log('');
+console.log(`(${a})^2 + (${b})^2 = c^2`);
+console.log('');
+console.log(`${x} + ${y} = c^2`);
+console.log('');
+console.log(`${z} = c^2`);
+console.log('');
+console.log(`${c} = c`);
+console.log('');
+console.log(`c = ${c}`);
+console.log('');
+console.log('Hope you enjoyed learning how to use Pythagora\'s formula to find the length of a hypotenuse!  Enjoy the rest of your life!')
