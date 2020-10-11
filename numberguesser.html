@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    
+    </head>
+    <body>
+        <h1 style="text-align: center;">Number Guessing Game!</h1>
+        <table>
+            <tr>
+                <th>Your Score</th>
+                <th>Computer Score</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <form>
+
+        </form>
+
+        <script>
+            var humanScore = 0;
+            var computerScore = 0;
+            var round = 1;
+
+            //ALL OF THE BELOW DECLARES THE FUNCTIONS TO BE USED
+
+            //Generates the target number to be guessed.
+            const generateTarget = function () { 
+            var a = Math.floor(Math.random()*10);
+            return a;
+            }
+
+            //Gets the computer's guess
+            const computerGuess = function() {
+            return Math.floor(Math.random()*10);
+            }
+
+            const advanceRound = function (humanGuess) {
+                //See the correct round displayed
+                console.log(`Round ${round}!`)
+                //Make guesses
+                yourGuess = humanGuess
+                compGuess = computerGuess()
+                Target = generateTarget()
+
+                if (compareGuesses(yourGuess, compGuess, Target) === true) {
+                    winner = 'human'
+                } else {
+                    winner = 'computer'
+                }
+                updateScore(winner)
+                //See your or the computer's score increase correctly
+                console.log(`Your score is ${humanScore}.  The computer's score is ${computerScore}.`);
+                //Move to the next round
+                round = round + 1
+                console.log(`Moving on to Round ${round}!`);
+            }
+            
+            
+            //Compares the human and computer's guesses and determines the winner.
+            const compareGuesses = function (humanGuess, computerGuess, secretTarget) {
+                console.log(`You guessed ${humanGuess}.`)
+                console.log(`The computer guesses ${computerGuess}.`)
+                console.log(`The secret target number is ${secretTarget}.`)
+                if (Math.abs(humanGuess - secretTarget) <= Math.abs(computerGuess - secretTarget)) {
+                    console.log('YOU WIN!')
+                    return true;
+                } else {
+                    console.log('The computer wins.')
+                    return false;
+                }
+}
+
+//This function needs to connect with compareGuesses through a
+            const updateScore = function (winner) {
+                if (winner === 'human') {
+                humanScore++;
+                } else if (winner === 'computer') {
+                computerScore++;
+                }
+            }
+
+
+            const playGame = function (guessHere) {
+                if (guessHere > 9 || guessHere < 0) {
+                    alert("You must pick a number from 0 to 9");
+                } else {
+                urGuess = guessHere;
+                advanceRound(urGuess);
+                }
+            }
+   
+        </script>
+    </body>
+</html>
